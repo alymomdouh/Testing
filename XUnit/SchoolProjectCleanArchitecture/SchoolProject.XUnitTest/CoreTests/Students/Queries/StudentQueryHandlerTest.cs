@@ -13,7 +13,9 @@ using SchoolProject.Data.Enums;
 using SchoolProject.Service.Abstracts;
 using SchoolProject.XUnitTest.TestModels;
 using System.Net;
+// default xUnit test collection behavior is CollectionPerClass, so we can set MaxParallelThreads to 6 to run tests in parallel for better performance.
 [assembly: CollectionBehavior(CollectionBehavior.CollectionPerClass, MaxParallelThreads = 6)]
+//[assembly: CollectionBehavior(CollectionBehavior.CollectionPerAssembly, MaxParallelThreads = 6)]
 namespace SchoolProject.XUnitTest.CoreTests.Students.Queries
 {
     public class StudentQueryHandlerTest
