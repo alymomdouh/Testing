@@ -1,4 +1,4 @@
- # Unit Testing vs Integration Testing
+﻿ # Unit Testing vs Integration Testing
 
 | Aspect        | Unit Test           | Integration Test                  |
 | ------------- | ------------------- | --------------------------------- |
@@ -430,3 +430,131 @@ Checks that a method was actually called.
 repository.Verify(x => x.Save(user));
 ```
 
+
+#### In .NET, xUnit, NUnit, and MSTest are all unit testing frameworks. They do almost the same job, but each has different strengths
+
+### Quick Comparison
+
+| Feature                    | xUnit             | NUnit         | MSTest                |
+| -------------------------- | ----------------- | ------------- | --------------------- |
+| Developed by               | .NET community    | NUnit team    | Microsoft             |
+| Popularity in new projects | ⭐⭐⭐⭐⭐ Very high   | ⭐⭐⭐⭐ High     | ⭐⭐⭐ Medium            |
+| Default for modern .NET    | ✅ Often preferred | ✅ Good choice | ✅ Microsoft ecosystem |
+| Test Attribute             | `[Fact]`          | `[Test]`      | `[TestMethod]`        |
+| Parameterized Tests        | `[Theory]`        | `[TestCase]`  | `[DataTestMethod]`    |
+| Parallel Execution         | Excellent         | Good          | Good                  |
+| Learning Curve             | Easy              | Easy          | Very Easy             |
+
+### When to Use xUnit
+
+### Choose xUnit when:
+
+- Starting a new ASP.NET Core or .NET project
+- Following modern .NET development practices
+- Using dependency injection extensively
+- Working in open-source projects
+- Wanting better extensibility and cleaner design
+
+Example: C#
+```
+public class CalculatorTests 
+{ 
+[Fact] 
+public void Add_ReturnsSum() 
+{ 
+var result = 2 + 3; 
+Assert.Equal(5, result); 
+} 
+}
+```
+### Advantages
+- Most popular in modern .NET projects.
+- Used by many Microsoft ASP.NET Core samples.
+- Better support for parallel test execution.
+- Constructor-based setup instead of special attributes.
+
+####  When to Use NUnit
+
+Choose NUnit when:
+
+- You need advanced testing features.
+- Your team already uses NUnit.
+- You want powerful parameterized testing.
+
+Example: C#
+```
+[TestFixture]
+public class CalculatorTests 
+{ 
+[Test] 
+public void Add_ReturnsSum() 
+{ 
+Assert.AreEqual(5, 2 + 3); 
+} 
+}
+```
+### Advantages
+Rich set of assertions.
+Very strong parameterized testing support.
+```
+[TestCase(2,3,5)] 
+[TestCase(5,5,10)] 
+public void AddTest(int a, int b, int expected) 
+{ 
+Assert.AreEqual(expected, a + b); 
+}
+```
+#### When to Use MSTest
+
+Choose MSTest when:
+
+- Working in an enterprise environment where Microsoft standards are preferred.
+- Maintaining older Visual Studio projects.
+- Your organization already uses MSTest templates and pipelines.
+- You want a framework officially maintained by Microsoft.
+
+Example: C#
+```
+[TestClass] 
+public class CalculatorTests 
+{ 
+[TestMethod] 
+public void Add_ReturnsSum() 
+{ 
+Assert.AreEqual(5, 2 + 3); 
+} 
+}
+```
+#### Advantages
+- Built directly into Visual Studio tooling.
+- Easy integration with Azure DevOps.
+- Familiar for teams coming from older .NET Framework projects.
+
+####  What I Recommend as a Senior .NET Developer New .NET 6/7/8/9 Project
+
+✅ Use xUnit
+
+Existing Project Already Using NUnit
+
+✅ Stay with NUnit
+
+Enterprise Project Standardized on Microsoft Tools
+
+✅ Use MSTest
+
+Need Heavy Parameterized Testing
+
+✅ Use NUnit
+
+#### Typical Industry Preference Today
+
+xUnit → Most common for new ASP.NET Core projects.
+
+NUnit → Very popular and feature-rich.
+
+MSTest → Common in Microsoft enterprise environments.
+
+
+#### Rule of thumb: 
+
+For a brand new .NET application, start with xUnit unless your company/team has a standard requiring NUnit or MSTest.
