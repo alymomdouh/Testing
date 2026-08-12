@@ -558,3 +558,33 @@ MSTest → Common in Microsoft enterprise environments.
 #### Rule of thumb: 
 
 For a brand new .NET application, start with xUnit unless your company/team has a standard requiring NUnit or MSTest.
+
+
+##    What is the TUnit    
+
+-  **[source here tunit.dev](https://tunit.dev/)**
+-  **[Article In TUnit - The Future of Testing in .NET](https://www.nikolatech.net/blogs/tunit-dotnet-unit-testing)**
+
+TUnit is a modern .NET testing framework that aims to be an alternative to well-known frameworks such as xUnit, NUnit, and MSTest. 
+Its goal is to take advantage of newer .NET technologies to provide better performance, simpler APIs, and modern development practices
+
+```
+[Test]
+public async Task Add_TwoNumbers_ReturnsSum()
+{
+    var result = 2 + 3;
+
+    await Assert.That(result)
+        .IsEqualTo(5);
+}
+```
+###  How does it compare to xUnit?
+
+| Feature              | TUnit   | xUnit        |
+| -------------------- | ------- | ------------ |
+| Source generators    | ✅       | ❌            |
+| Native AOT support   | ✅       | Limited      |
+| Parallel by default  | ✅       | Configurable |
+| Async-first approach | ✅       | ✅            |
+| Mature ecosystem     | Growing | Very mature  |
+
