@@ -613,3 +613,6 @@ public async Task Add_TwoNumbers_ReturnsSum()
 ### [Architecture Tests in .NET article](https://www.nikolatech.net/blogs/architecture-tests-in-dotnet)
 
 ###  [lot of articles about testing](https://milanjovanovic.tech/blog/search?q=Test)
+
+### [ASP.NET Core: Test-Driven Development  linkedin learning Course](https://www.linkedin.com/learning/asp-dot-net-core-test-driven-development/welcome?u=132271146)
+
